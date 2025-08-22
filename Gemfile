@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "annotaterb"
   gem "web-console"
 end
 
