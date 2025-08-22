@@ -26,6 +26,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "rack-mini-profiler"
   gem "letter_opener"
   gem "annotaterb"
   gem "web-console"
