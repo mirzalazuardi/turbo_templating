@@ -24,6 +24,9 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "factory_bot_rails"
   gem "rspec-rails"
+  gem "faker", "~> 3.5"
+  gem "pry-rails", "~> 0.3.11"
+  gem "bullet", "~> 8.0"
 end
 
 group :development do
@@ -36,6 +39,8 @@ group :development do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem "web-console"
+  gem "shog", "~> 0.2.1"
+  gem "rails_performance", "~> 1.4"
 end
 
 group :test do
