@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= content_for(:title) || "Turbo Templating" %></title>
+    <title><%= content_for?(:title) ? strip_tags(yield(:title)) : "Turbo Templating" %></title>
+    <meta name="apple-mobile-web-app-title" content="Turbo Templating">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
