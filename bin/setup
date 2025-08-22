@@ -4,7 +4,7 @@
 # This script is a way to set up or update your development environment automatically.
 # This script is idempotent, so that you can run it at any time and get an expectable outcome.
 # Add necessary setup steps to this method.
-def setup! # rubocop:disable Metrics/PerceivedComplexity
+def setup!
   env ".env", from: ".env.sample"
   run "bundle install" if bundle_needed?
   run "overcommit --install" if overcommit_installable?
