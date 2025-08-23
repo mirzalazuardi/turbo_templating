@@ -1,0 +1,13 @@
+<a href="#" class="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white hover:border-slate-300 active:border-slate-200">
+  <div class="w-full grow p-5 text-center lg:p-6">
+    <%= image_tag "https://via.placeholder.com/160", class: "mb-4 inline-block size-16 rounded-full", alt: "User" %>
+    <h4 class="font-semibold"><%= @name %></h4>
+    <p class="text-sm font-medium text-slate-500"><%= @email %></p>
+  </div>
+  <div class="flex items-center justify-between gap-2 border-t border-slate-100 px-5 py-4 text-sm font-medium lg:px-6">
+    <span>Invited you to start <span class="font-semibold"><%= @project %></span></span>
+    <svg class="hi-solid hi-arrow-right inline-block size-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+    </svg>
+  </div>
+</a>

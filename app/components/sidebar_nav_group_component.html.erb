@@ -1,0 +1,7 @@
+<%# app/components/sidebar_nav_group_component.html.erb %>
+<div class="w-full space-y-3 p-4">
+  <% if @label.present? %>
+    <div class="px-4 text-xs font-semibold uppercase text-slate-500"><%= @label %></div>
+  <% end %>
+  <%= content %>
+</div>

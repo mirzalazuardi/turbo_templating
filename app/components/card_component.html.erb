@@ -1,0 +1,14 @@
+<a href="#" class="flex flex-col rounded-2xl border border-slate-200 bg-white hover:border-slate-300 active:border-slate-200">
+  <div class="flex w-full grow items-center justify-between p-5 lg:p-6">
+    <dl>
+      <dt class="text-2xl font-bold"><%= @value %></dt>
+      <dd class="text-slate-600"><%= @title %></dd>
+    </dl>
+    <div class="flex size-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+      <%= content %>
+    </div>
+  </div>
+  <div class="w-full border-t border-slate-100 px-5 py-3 text-xs font-medium text-slate-500 lg:px-6">
+    <p><%= @subtitle %></p>
+  </div>
+</a>
