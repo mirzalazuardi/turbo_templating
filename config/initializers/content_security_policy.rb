@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+Rails.application.config.after_initialize do
+  Rails.application.routes.disable_clear_and_finalize = true
+end if Rails.env.development?
 
 # Be sure to restart your server when you modify this file.
 
