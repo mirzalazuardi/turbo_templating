@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --default-font-family: "Inter", ui-sans-serif, sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
