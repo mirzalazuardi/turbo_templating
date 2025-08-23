@@ -48,3 +48,5 @@ group :test do
   gem "selenium-webdriver", require: false
   gem "shoulda-matchers"
 end
+
+gem "view_component", "~> 4.0"
