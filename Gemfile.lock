@@ -208,6 +208,9 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.3)
+    meta_request (0.8.5)
+      rack-contrib (>= 1.1, < 3)
+      railties (>= 3.0.0, < 9)
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
@@ -277,6 +280,8 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.0)
+    rack-contrib (2.5.0)
+      rack (< 4)
     rack-mini-profiler (4.0.1)
       rack (>= 1.2.0)
     rack-session (2.1.1)
@@ -468,6 +473,7 @@ DEPENDENCIES
   jbuilder
   kamal
   letter_opener
+  meta_request (~> 0.8.5)
   pg (~> 1.1)
   propshaft
   pry-rails (~> 0.3.11)

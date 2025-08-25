@@ -41,6 +41,7 @@ group :development do
   gem "web-console"
   gem "shog", "~> 0.2.1"
   gem "rails_performance", "~> 1.4"
+  gem "meta_request", "~> 0.8.5"
 end
 
 group :test do
@@ -50,3 +51,4 @@ group :test do
 end
 
 gem "view_component", "~> 4.0"
+
