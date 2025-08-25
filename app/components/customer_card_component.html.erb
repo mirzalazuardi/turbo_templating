@@ -1,6 +1,6 @@
 <a href="#" class="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white hover:border-slate-300 active:border-slate-200">
   <div class="w-full grow p-5 text-center lg:p-6">
-    <%= image_tag "https://via.placeholder.com/160", class: "mb-4 inline-block size-16 rounded-full", alt: "User" %>
+    <%= image_tag "https://avatar.iran.liara.run/username?username=#{@name.gsub(' ','+')}", class: "mb-4 inline-block size-16 rounded-full", alt: "User" %>
     <h4 class="font-semibold"><%= @name %></h4>
     <p class="text-sm font-medium text-slate-500"><%= @email %></p>
   </div>
