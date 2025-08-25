@@ -52,3 +52,5 @@ end
 
 gem "view_component", "~> 4.0"
 
+
+gem "pagy", "~> 9.4"
