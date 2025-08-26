@@ -1,14 +1,14 @@
 <p style="color: red"><%= alert %></p>
 
-<h1>Forgot your password?</h1>
+<h1 class="<%= form_subtitle_classes %>">Forgot your password?</h1>
 
-<%= form_with(url: identity_password_reset_path) do |form| %>
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.email_field :email, required: true, autofocus: true %>
+<%= form_with(url: identity_password_reset_path, class: form_group_classes) do |form| %>
+  <div class="mb-4">
+    <%= form.label :email, class: label_classes %>
+    <%= form.email_field :email, required: true, autofocus: true, autocomplete: "email", class: form_input_classes %>
   </div>
 
-  <div>
-    <%= form.submit "Send password reset email" %>
+  <div class="mb-4">
+    <%= form.submit "Send password reset email", class: submit_button_classes %>
   </div>
 <% end %>

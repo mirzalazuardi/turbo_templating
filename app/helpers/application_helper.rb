@@ -1,6 +1,103 @@
-# frozen_string_literal: true
-
 module ApplicationHelper
+  def button_color_classes(color, size: :md, rounded: false)
+    result = case color
+    when :blue
+      "bg-blue-500 hover:bg-blue-600 text-white"
+    when :green
+      "bg-green-500 hover:bg-green-600 text-white"
+    when :red
+      "bg-red-500 hover:bg-red-600 text-white"
+    when :yellow
+      "bg-yellow-500 hover:bg-yellow-600 text-white"
+    when :gray
+      "bg-gray-500 hover:bg-gray-600 text-white"
+    when :black
+      "bg-black hover:bg-gray-800 text-white"
+    when :navy
+      "bg-blue-900 hover:bg-blue-800 text-white"
+    else
+      "bg-gray-500 hover:bg-gray-600 text-white"
+    end
+
+    result = result.dup
+    result.concat(" rounded-full") if rounded
+    result.concat(" rounded-md") unless rounded
+    result.concat(" px-4 py-2") if size == :md
+    result.concat(" px-3 py-1.5 text-sm") if size == :sm
+    result.concat(" px-5 py-3 text-lg") if size == :lg
+    result
+  end
+
+  def form_input_classes(size: :sm, rounded: false)
+    result = "border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+    result = result.dup
+    result.concat(" rounded-full") if rounded
+    result.concat(" rounded-md") unless rounded
+    result.concat(" text-sm") if size == :sm
+    result.concat(" text-lg") if size == :lg
+    result
+  end
+
+  def form_error_classes
+    "text-red-500 text-sm mt-1"
+  end
+
+  def form_group_classes
+    "mb-4"
+  end
+
+  def form_container_classes
+    "max-w-md mx-auto p-4 bg-white shadow-md rounded-md"
+  end
+
+  def form_title_classes
+    "text-2xl font-bold mb-4 text-center"
+  end
+
+  def form_subtitle_classes
+    "text-gray-600 mb-6 text-center"
+  end
+
+  def form_footer_classes
+    "mt-6 text-center"
+  end
+
+  def checkbox_classes
+    "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+  end
+
+  def submit_button_classes
+    "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+  end
+
+  def cancel_button_classes
+    "bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded"
+  end
+
+  def dropdown_menu_classes
+    "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+  end
+
+  def radio_button_classes
+    "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+  end
+
+  def text_area_classes
+    "border border-gray-300 rounded-md p-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"
+  end
+
+  def select_classes
+    "border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+  end
+
+  def label_classes
+    "block text-sm font-medium text-gray-700 mb-1"
+  end
+
+  def p_tag_classes
+    "text-gray-700 mb-4"
+  end
+
   def gear_icon_path
     <<~SVG
       <path
