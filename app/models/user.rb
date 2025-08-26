@@ -24,4 +24,12 @@ class User < ApplicationRecord
   after_update if: :password_digest_previously_changed? do
     sessions.where.not(id: Current.session).delete_all
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
+      user.email = auth.info.email
+      user.name = auth.info.name
+      user.password = SecureRandom.hex(15) if user.new_record?
+    end
+  end
 end

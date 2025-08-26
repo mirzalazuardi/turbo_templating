@@ -62,3 +62,11 @@ gem "bcrypt", "~> 3.1.7"
 gem "omniauth"
 # Provides a mitigation against CVE-2015-9284 [https://github.com/cookpad/omniauth-rails_csrf_protection]
 gem "omniauth-rails_csrf_protection"
+
+gem "omniauth-google-oauth2", "~> 1.2"
+
+gem "omniauth-facebook", "~> 10.0"
+
+gem "omniauth-twitter", "~> 1.4"
+
+gem "omniauth-linkedin-oauth2", "~> 1.0"

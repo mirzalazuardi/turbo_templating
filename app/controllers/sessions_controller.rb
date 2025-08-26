@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "sessions"
   skip_before_action :authenticate, only: %i[ new create ]
 
   before_action :set_session, only: :destroy
@@ -23,6 +24,17 @@ class SessionsController < ApplicationController
 
   def destroy
     @session.destroy; redirect_to(sessions_path, notice: "That session has been logged out")
+  end
+
+  def omniauth
+    user = User.from_omniauth(request.env["omniauth.auth"])
+
+    if user.persisted?
+      session[:user_id] = user.id
+      redirect_to root_path, notice: "Signed in with #{user.provider.titleize}"
+    else
+      redirect_to login_path, alert: "Authentication failed."
+    end
   end
 
   private

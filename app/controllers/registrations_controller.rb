@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  layout "sessions"
   skip_before_action :authenticate
 
   def new

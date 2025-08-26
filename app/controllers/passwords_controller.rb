@@ -1,4 +1,5 @@
 class PasswordsController < ApplicationController
+  layout "sessions"
   before_action :set_user
 
   def edit
