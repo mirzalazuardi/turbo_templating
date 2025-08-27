@@ -1,7 +1,7 @@
-<p style="color: green"><%= notice %></p>
-<p style="color: red"><%= alert %></p>
+<h1 class="<%= form_subtitle_classes %>"> Sign in</h1>
 
-<h1 class="<%= form_subtitle_classes %>" > Sign in</h1>
+<p class="<%= p_tag_classes() %>"><%= notice %></p>
+<p class="<%= p_tag_classes(:red) %>"><%= alert %></p>
 
 <%= form_with(url: sign_in_path, class: form_group_classes) do |form| %>
   <div class="mb-4">

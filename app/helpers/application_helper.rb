@@ -94,8 +94,26 @@ module ApplicationHelper
     "block text-sm font-medium text-gray-700 mb-1"
   end
 
-  def p_tag_classes
-    "text-gray-700 mb-4"
+  def p_tag_classes(color = :black, size: :md)
+    result = case size
+             when :sm
+                "text-sm"
+             when :lg
+                "text-lg"
+             else
+                "text-md"
+             end
+    result = result.dup
+    result.concat(" font-bold") if color == :black
+    result.concat(" font-semibold") if color == :blue
+    result.concat(" font-normal") unless [:black, :blue].include?(color)
+    result.concat(" text-red-700") if color == :red
+    result.concat(" text-green-700") if color == :green
+    result.concat(" text-blue-700") if color == :blue
+    result.concat(" text-yellow-700") if color == :yellow
+    result.concat(" text-black") if color == :black
+    result.concat(" text-gray-700") if color == :gray
+    result
   end
 
   def gear_icon_path
