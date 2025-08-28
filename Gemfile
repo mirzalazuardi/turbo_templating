@@ -70,3 +70,5 @@ gem "omniauth-facebook", "~> 10.0"
 gem "omniauth-twitter", "~> 1.4"
 
 gem "omniauth-linkedin-oauth2", "~> 1.0"
+gem "avo", ">= 3.17"
+gem "dotenv", groups: [:development, :test]
