@@ -40,7 +40,7 @@ group :development do
   gem "rubocop-rails", require: false
   gem "web-console"
   gem "shog", "~> 0.2.1"
-  gem "rails_performance", "~> 1.4"
+  gem "rails_performance", "~> 1.5"
   gem "meta_request", "~> 0.8.5"
 end
 
