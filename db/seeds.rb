@@ -11,6 +11,6 @@
 #   end
 
 User.find_or_create_by!(email: "user1@mail.com") do |user|
-  user.password = "password"
-  user.password_confirmation = "password"
+  user.password = "Password123#"
+  user.password_confirmation = "Password123#"
 end
