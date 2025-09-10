@@ -1,4 +1,22 @@
 module ApplicationHelper
+  def alert(type, message)
+    color_class = case type
+                  when :success
+                    "bg-green-100 border-green-400 text-green-700"
+                  when :error
+                    "bg-red-100 border-red-400 text-red-700"
+                  when :warning
+                    "bg-yellow-100 border-yellow-400 text-yellow-700"
+                  when :info
+                    "bg-blue-100 border-blue-400 text-blue-700"
+                  else
+                    "bg-gray-100 border-gray-400 text-gray-700"
+                  end
+    content_tag(:div, class: "border px-4 py-3 rounded relative #{color_class} mb-4", role: "alert") do
+      concat(content_tag(:strong, message, class: "font-bold"))
+    end
+  end
+
   def button_color_classes(color, size: :md, rounded: false)
     result = case color
     when :blue

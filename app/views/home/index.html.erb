@@ -1,6 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<%= alert(:info, notice) if notice %>
+<%= alert(:warning, alert) if alert %>
+<%= alert(:error, flash[:error]) if flash[:error] %>
+<%= alert(:success, flash[:success]) if flash[:success] %>
 
-<p>Signed as <%= Current.user.email %></p>
+<h1>Welcome, <%= Current.user.name || Current.user.email %>!</h1>
+<p class="<%= p_tag_classes %>">Signed as <%= Current.user.email %></p>
 
 <h2>Login and verification</h2>
 
