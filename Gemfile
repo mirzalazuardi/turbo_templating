@@ -74,3 +74,5 @@ gem "avo", ">= 3.17"
 gem "dotenv", groups: [:development, :test]
 
 gem "pundit", "~> 2.5"
+
+gem "interactor", "~> 3.2"

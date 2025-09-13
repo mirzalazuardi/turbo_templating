@@ -202,6 +202,8 @@ GEM
     inline_svg (1.10.0)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
+    interactor (3.2.0)
+      ostruct
     io-console (0.8.1)
     irb (1.15.2)
       pp (>= 0.6.0)
@@ -571,6 +573,7 @@ DEPENDENCIES
   factory_bot_rails
   faker (~> 3.5)
   importmap-rails
+  interactor (~> 3.2)
   jbuilder
   kamal
   letter_opener
