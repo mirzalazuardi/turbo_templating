@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  layout "sessions"
+  layout "sessions", only: %i[ new create ]
+  layout "application", only: %i[ index ]
   skip_before_action :authenticate, only: %i[ new create ]
 
   before_action :set_session, only: :destroy

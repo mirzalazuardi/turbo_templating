@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def alert(type, message)
+  def alert_msg(type, message)
     color_class = case type
                   when :success
                     "bg-green-100 border-green-400 text-green-700"

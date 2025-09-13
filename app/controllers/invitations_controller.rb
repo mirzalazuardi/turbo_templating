@@ -1,5 +1,5 @@
 class InvitationsController < ApplicationController
-  layout "sessions"
+  layout "application"
   def new
     @user = User.new
   end

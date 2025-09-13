@@ -16,28 +16,28 @@
   <% end %>
 
   <div>
-    <%= form.label :password_challenge, style: "display: block" %>
+    <%= form.label :password_challenge, class: label_classes %>
     <%= form.password_field :password_challenge, required: true, autofocus: true, autocomplete: "current-password" %>
   </div>
 
   <div>
-    <%= form.label :password, "New password", style: "display: block" %>
+    <%= form.label :password, "New password", class: label_classes %>
     <%= form.password_field :password, required: true, autocomplete: "new-password" %>
-    <div>12 characters minimum.</div>
+    <div class="<%= p_tag_classes(:red) %>">12 characters minimum.</div>
   </div>
 
   <div>
-    <%= form.label :password_confirmation, "Confirm new password", style: "display: block" %>
+    <%= form.label :password_confirmation, "Confirm new password", class: label_classes %>
     <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
   </div>
 
   <div>
-    <%= form.submit "Save changes" %>
+    <%= form.submit "Save changes", class: button_color_classes(:blue) %>
   </div>
 <% end %>
 
 <br>
 
 <div>
-  <%= link_to "Back", root_path %>
+  <%= link_to "Back", root_path, class: button_color_classes(:yellow) %>
 </div>
