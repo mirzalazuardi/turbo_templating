@@ -49,4 +49,8 @@ class User < ApplicationRecord
       user.password = SecureRandom.hex(15) if user.new_record?
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id email provider uid created_at updated_at]
+  end
 end
