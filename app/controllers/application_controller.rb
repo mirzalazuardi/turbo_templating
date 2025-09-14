@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   before_action :set_current_request_details
   before_action :authenticate
 
+  def fix_ransack_params(ransack_params)
+    ransack_params.permit(*ransack_params.keys).to_h if ransack_params.kind_of?(ActionController::Parameters)
+  end
+
   private
     def authenticate
       if session_record = Session.find_by_id(cookies.signed[:session_token])

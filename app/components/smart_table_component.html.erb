@@ -1,8 +1,8 @@
 <div class="mb-4">
-  <%= search_form_for @ransack, url: request.path, method: :get, html: { class: "mb-2 flex space-x-2" } do |f| %>
+  <%= search_form_for @ransack, url: request.path, method: :get, html: { data: { turbo_frame: "users_table" }, class: "mb-2 flex space-x-2" } do |f| %>
     <% @columns.each do |col| %>
-      <%= f.label col, class: "sr-only" %>
-      <%= f.search_field col, placeholder: col.to_s.humanize, class: "shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+      <%= f.label search_field_name(col), class: "sr-only" %>
+      <%= f.search_field search_field_name(col), placeholder: col.to_s.humanize, class: "shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
     <% end %>
     <%= f.submit "Search", class: "ml-2 px-4 py-2 bg-blue-600 text-white rounded" %>
   <% end %>
@@ -28,5 +28,5 @@
   </tbody>
 </table>
 <div>
-  <%= pagy_nav(@pagy) if @pagy %>
+  <%== pagy_nav(@pagy) if @pagy %>
 </div>

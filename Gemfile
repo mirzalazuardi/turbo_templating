@@ -76,3 +76,5 @@ gem "dotenv", groups: [:development, :test]
 gem "pundit", "~> 2.5"
 
 gem "interactor", "~> 3.2"
+
+gem "ransack", "~> 4.3"
