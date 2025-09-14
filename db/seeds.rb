@@ -10,7 +10,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.find_or_create_by!(email: "user1@mail.com") do |user|
-  user.password = "Password123#"
-  user.password_confirmation = "Password123#"
+30.times do |i|
+  User.find_or_create_by!(email: "user#{i+1}@mail.com") do |user|
+    user.password = "Password123#"
+    user.password_confirmation = "Password123#"
+  end
 end

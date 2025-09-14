@@ -1,5 +1,7 @@
 <div class="mb-4">
-  <%= search_form_for @ransack, url: request.path, method: :get, html: { data: { turbo_frame: "users_table" }, class: "mb-2 flex space-x-2" } do |f| %>
+  <% html = { class: "mb-2 flex space-x-2" } %>
+  <% html[:data] = { turbo: true, turbo_frame: @result_frame_id } if @result_frame_id.present? %>
+  <%= search_form_for @ransack, url: request.path, method: :get, html: html do |f| %>
     <% @columns.each do |col| %>
       <%= f.label search_field_name(col), class: "sr-only" %>
       <%= f.search_field search_field_name(col), placeholder: col.to_s.humanize, class: "shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" %>

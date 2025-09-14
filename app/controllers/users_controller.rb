@@ -3,23 +3,17 @@
 class UsersController < ApplicationController
 
   include Pagy::Backend
+  include GenericCrudLoader
 
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    ransack_params = params[:q] || {}
-    ransack_params = fix_ransack_params(ransack_params)
-    pagy_params = { page: params[:page] || 1, items: 10 }
-    result = GenericCrudInteractor.call(
-      model: User,
-      action: :fetch,
-      ransack_params: ransack_params,
-      pagy_params: pagy_params
-    )
-    @pagy = result.pagy
-    @records = result.records
-    @ransack = User.ransack(ransack_params)
-    render
+    load_crud_records(model: User, items: 10)
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+      format.json { render json: records }
+    end
   end
 
   def new
