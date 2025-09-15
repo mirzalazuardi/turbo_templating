@@ -1,0 +1,9 @@
+<%= turbo_stream.replace "users_list" do %>
+  <%= render SmartTableComponent.new(
+    columns: [:email],
+    records: @records,
+    pagy: @pagy,
+    ransack: @ransack,
+    result_frame_id: "users_list"
+  ) %>
+<% end %>
