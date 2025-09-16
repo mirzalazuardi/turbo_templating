@@ -6,7 +6,7 @@ gem "bootsnap", require: false
 gem "importmap-rails"
 gem "jbuilder"
 gem "kamal", require: false
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.6"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rails", github: "rails/rails", branch: "8-0-stable"
