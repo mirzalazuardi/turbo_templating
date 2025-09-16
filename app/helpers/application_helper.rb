@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def alert_msg(type, message)
     color_class = case type
                   when :success
