@@ -27,6 +27,7 @@ group :development, :test do
   gem "faker", "~> 3.5"
   gem "pry-rails", "~> 0.3.11"
   gem "bullet", "~> 8.0"
+  gem "pry-remote", "~> 0.1.8"
 end
 
 group :development do
@@ -78,3 +79,4 @@ gem "pundit", "~> 2.5"
 gem "interactor", "~> 3.2"
 
 gem "ransack", "~> 4.3"
+
