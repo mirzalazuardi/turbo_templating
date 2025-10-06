@@ -201,22 +201,23 @@
           </svg>
           <span>Settings</span>
         </a>
-        <a
-          href="javascript:void(0)"
-          class="flex items-center gap-3 rounded-lg px-4 py-2.5 font-semibold text-slate-600 hover:bg-white hover:shadow-xs hover:shadow-slate-300/50 active:bg-white/75 active:text-slate-800 active:shadow-slate-300/10"
-        >
+        <%= button_to session_path(Current.session),
+            method: :delete,
+            class: "flex items-center gap-3 rounded-lg px-4 py-2.5 font-semibold text-slate-600 hover:bg-white hover:shadow-xs hover:shadow-slate-300/50 active:bg-white/75 active:text-slate-800 active:shadow-slate-300/10 w-full text-left border-0 bg-transparent cursor-pointer",
+            data: { turbo_confirm: "Are you sure you want to log out?" } do %>
           <svg
             class="bi bi-lock-fill inline-block size-4 text-slate-400"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 16 16"
+            aria-hidden="true"
           >
             <path
               d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
             />
           </svg>
           <span>Logout</span>
-        </a>
+        <% end %>
       </nav>
       <!-- END Sub Navigation -->
     </nav>
