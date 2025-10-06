@@ -58,6 +58,23 @@ This is a Rails 8.0 application with a modern Hotwire (Turbo + Stimulus) stack, 
 - ✅ Shoulda matchers for validations
 - ✅ OmniAuth test helpers
 
+### Accessibility & SEO
+- ✅ WCAG 2.1 Level AA compliant
+- ✅ Semantic HTML (nav, main, header, footer)
+- ✅ ARIA labels and roles throughout
+- ✅ Skip to main content link
+- ✅ Keyboard navigation support
+- ✅ Screen reader optimized
+- ✅ Form accessibility (aria-required, aria-invalid, aria-describedby)
+- ✅ Comprehensive SEO meta tags (title, description, keywords, author, robots)
+- ✅ Open Graph tags for social sharing (Facebook, LinkedIn)
+- ✅ Twitter Card meta tags
+- ✅ Structured data (JSON-LD Schema.org)
+- ✅ Canonical URLs
+- ✅ Per-page SEO customization with content_for
+- ✅ Responsive theme-color for light/dark mode
+- ✅ Focus indicators on all interactive elements
+
 ## Development Commands
 
 ### Setup and Running

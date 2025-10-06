@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= content_for?(:title) ? strip_tags(yield(:title)) : "Turbo Templating" %></title>
-    <meta name="description" content="Rails 8 Progressive Web Application with Hotwire">
+    <meta charset="utf-8">
+    <title><%= content_for?(:title) ? strip_tags(yield(:title)) : "Turbo Templating - Rails 8 PWA with Hotwire" %></title>
+
+    <%# SEO Meta Tags %>
+    <meta name="description" content="<%= content_for?(:description) ? strip_tags(yield(:description)) : 'Modern Rails 8 Progressive Web Application built with Hotwire, Turbo, and Stimulus. Fast, responsive, and installable.' %>">
+    <meta name="keywords" content="<%= content_for?(:keywords) ? strip_tags(yield(:keywords)) : 'Rails 8, Progressive Web App, Hotwire, Turbo, Stimulus, Ruby on Rails' %>">
+    <meta name="author" content="<%= content_for?(:author) ? strip_tags(yield(:author)) : 'Turbo Templating' %>">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="<%= content_for?(:canonical) ? yield(:canonical) : request.original_url %>">
+
+    <%# Open Graph / Facebook %>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:title" content="<%= content_for?(:title) ? strip_tags(yield(:title)) : 'Turbo Templating - Rails 8 PWA' %>">
+    <meta property="og:description" content="<%= content_for?(:description) ? strip_tags(yield(:description)) : 'Modern Rails 8 Progressive Web Application built with Hotwire' %>">
+    <meta property="og:image" content="<%= content_for?(:og_image) ? yield(:og_image) : "#{request.base_url}/icon-512.png" %>">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Turbo Templating">
+
+    <%# Twitter Card %>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<%= request.original_url %>">
+    <meta name="twitter:title" content="<%= content_for?(:title) ? strip_tags(yield(:title)) : 'Turbo Templating - Rails 8 PWA' %>">
+    <meta name="twitter:description" content="<%= content_for?(:description) ? strip_tags(yield(:description)) : 'Modern Rails 8 Progressive Web Application built with Hotwire' %>">
+    <meta name="twitter:image" content="<%= content_for?(:twitter_image) ? yield(:twitter_image) : "#{request.base_url}/icon-512.png" %>">
+
+    <%# PWA Meta Tags %>
     <meta name="apple-mobile-web-app-title" content="Turbo Templating">
     <meta name="application-name" content="Turbo Templating">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#3b82f6">
+    <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e40af" media="(prefers-color-scheme: dark)">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,6 +45,7 @@
     <%# Enable PWA manifest for installable apps %>
     <%= tag.link rel: "manifest", href: "/manifest.json" %>
 
+    <%# Icons %>
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon-192.png">
@@ -27,16 +55,41 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <%# Structured Data - JSON-LD %>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Turbo Templating",
+      "url": "<%= request.base_url %>",
+      "description": "Modern Rails 8 Progressive Web Application built with Hotwire, Turbo, and Stimulus",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "softwareVersion": "1.0.0"
+    }
+    </script>
   </head>
 
   <body>
+    <%# Skip to main content link for accessibility %>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-lg">
+      Skip to main content
+    </a>
+
     <%= render "shared/sidebar" %>
 
     <%= render HeaderComponent.new(mobile_sidebar_open: true) %>
-    <main id="page-content" class="flex max-w-full flex-auto flex-col pt-20 lg:pt-0">
+
+    <main id="main-content" role="main" class="flex max-w-full flex-auto flex-col pt-20 lg:pt-0" aria-label="Main content">
       <div class="container mx-auto space-y-10 px-4 py-8 lg:space-y-16 lg:px-8 xl:max-w-7xl">
         <%= yield %>
-
       </div>
     </main>
 

@@ -1,12 +1,30 @@
-<% user.errors.full_messages.each do |message| %>
-  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-    <span class="block sm:inline"><%= message %></span>
+<% if user.errors.any? %>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert" aria-live="polite" aria-atomic="true">
+    <h2 class="font-bold mb-2" id="error-heading">
+      <%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:
+    </h2>
+    <ul class="list-disc list-inside" aria-labelledby="error-heading">
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
-<%= form_with(model: user, data: { turbo: true, turbo_frame: "users_list" }) do |f| %>
+<%= form_with(model: user, data: { turbo: true, turbo_frame: "users_list" }, html: { "aria-labelledby": "user-form-heading" }) do |f| %>
+  <h2 id="user-form-heading" class="sr-only"><%= user.new_record? ? "Create new user" : "Edit user" %></h2>
+
   <div class="mb-4">
-    <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-    <%= f.email_field :email, class: "shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    <%= f.label :email, "Email address", class: "block text-sm font-medium text-gray-700" %>
+    <%= f.email_field :email,
+        class: "shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md",
+        "aria-required": "true",
+        "aria-describedby": user.errors[:email].any? ? "email-error" : nil,
+        "aria-invalid": user.errors[:email].any? %>
+    <% if user.errors[:email].any? %>
+      <p id="email-error" class="mt-1 text-sm text-red-600" role="alert">
+        <%= user.errors[:email].join(", ") %>
+      </p>
+    <% end %>
   </div>
-  <%= f.submit "save", class: button_color_classes(:blue)  %>
+  <%= f.submit "Save", class: "#{button_color_classes(:blue)} focus:ring-2 focus:ring-offset-2 focus:ring-blue-500", "aria-label": "Save user" %>
 <% end %>

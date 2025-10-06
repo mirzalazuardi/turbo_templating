@@ -1,34 +1,45 @@
-<div class="mb-4">
-  <% html = { class: "mb-2 flex space-x-2" } %>
+<div class="mb-4" role="search" aria-label="Search and filter table">
+  <% html = { class: "mb-2 flex space-x-2", role: "search" } %>
   <% html[:data] = { turbo: true, turbo_frame: @result_frame_id } if @result_frame_id.present? %>
   <%= search_form_for @ransack, url: request.path, method: :get, html: html do |f| %>
     <% @columns.each do |col| %>
-      <%= f.label search_field_name(col), class: "sr-only" %>
-      <%= f.search_field search_field_name(col), placeholder: col.to_s.humanize, class: "shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+      <%= f.label search_field_name(col), "Search by #{col.to_s.humanize}", class: "sr-only" %>
+      <%= f.search_field search_field_name(col),
+          placeholder: col.to_s.humanize,
+          class: "shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md",
+          "aria-label": "Search by #{col.to_s.humanize}" %>
     <% end %>
-    <%= f.submit "Search", class: "ml-2 px-4 py-2 bg-blue-600 text-white rounded" %>
+    <%= f.submit "Search", class: "ml-2 px-4 py-2 bg-blue-600 text-white rounded focus:ring-2 focus:ring-offset-2 focus:ring-blue-500", "aria-label": "Submit search" %>
   <% end %>
 </div>
-<table class="min-w-full divide-y divide-gray-200 mb-4">
+<table class="min-w-full divide-y divide-gray-200 mb-4" role="table" aria-label="Data table">
   <thead class="bg-gray-50">
-    <tr>
+    <tr role="row">
       <% @columns.each do |col| %>
-        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" role="columnheader">
           <%= sort_link(@ransack, col, col.to_s.humanize) %>
         </th>
       <% end %>
     </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200">
-    <% @records.each do |record| %>
-      <tr>
-        <% @columns.each do |col| %>
-          <td class="px-6 py-4 whitespace-nowrap"><%= record.send(col) %></td>
-        <% end %>
+    <% if @records.any? %>
+      <% @records.each do |record| %>
+        <tr role="row">
+          <% @columns.each do |col| %>
+            <td class="px-6 py-4 whitespace-nowrap" role="cell"><%= record.send(col) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr role="row">
+        <td colspan="<%= @columns.length %>" class="px-6 py-4 text-center text-gray-500" role="cell">
+          No records found
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<div>
+<nav aria-label="Pagination navigation">
   <%= render PagyTailwindComponent.new(pagy: @pagy) if @pagy %>
-</div>
+</nav>

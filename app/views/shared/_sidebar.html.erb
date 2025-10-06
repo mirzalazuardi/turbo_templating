@@ -50,12 +50,14 @@
             type="button"
             class="flex size-10 items-center justify-center text-slate-400 hover:text-slate-600 active:text-slate-400"
             x-on:click="mobileSidebarOpen = false"
+            aria-label="Close navigation menu"
           >
             <svg
               class="hi-solid hi-x -mx-1 inline-block size-5"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 fill-rule="evenodd"
@@ -84,16 +86,18 @@
 
 
       <!-- Main Navigation -->
-      <div class="w-full grow space-y-3 p-4">
+      <nav class="w-full grow space-y-3 p-4" aria-label="Primary navigation">
         <a
           href="javascript:void(0)"
           class="flex items-center gap-3 rounded-lg bg-white px-4 py-2.5 font-semibold text-slate-600 shadow-xs shadow-slate-300/50"
+          aria-current="page"
         >
           <svg
             class="bi bi-house-heart-fill inline-block size-4 text-slate-400"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 16 16"
+            aria-hidden="true"
           >
             <path
               d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.707L8 2.207 1.354 8.853a.5.5 0 1 1-.708-.707L7.293 1.5Z"
@@ -176,11 +180,11 @@
           </svg>
           <span>Support</span>
         </a>
-      </div>
+      </nav>
       <!-- END Main Navigation -->
 
       <!-- Sub Navigation -->
-      <div class="w-full flex-none space-y-3 p-4">
+      <nav class="w-full flex-none space-y-3 p-4" aria-label="Secondary navigation">
         <a
           href="javascript:void(0)"
           class="flex items-center gap-3 rounded-lg px-4 py-2.5 font-semibold text-slate-600 hover:bg-white hover:shadow-xs hover:shadow-slate-300/50 active:bg-white/75 active:text-slate-800 active:shadow-slate-300/10"
@@ -213,7 +217,7 @@
           </svg>
           <span>Logout</span>
         </a>
-      </div>
+      </nav>
       <!-- END Sub Navigation -->
     </nav>
     <!-- Page Sidebar -->
