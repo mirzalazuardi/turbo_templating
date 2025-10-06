@@ -31,8 +31,7 @@ class GenericCrudInteractor
     context.fail!(error: e.message)
   end
 
-  private
-
+  # private
   def create_record
     record = context.model.new(context.params)
     if record.save

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render layout: false
+    render turbo_stream: turbo_stream.update("modal", partial: "users/form", locals: { user: @user }), layout: false
   end
 
   def create
@@ -28,11 +28,26 @@ class UsersController < ApplicationController
       params: user_params
     )
     if result.success?
-      redirect_to users_path, notice: "User created"
+      load_crud_records(model: User, items: 10)
+      render turbo_stream: turbo_stream.replace(
+        "users_list",
+        partial: "users/index",
+        locals: {
+          columns: [:email],
+          records: @records,
+          pagy: @pagy,
+          ransack: @ransack,
+          results_frame_id: "users_list"
+        }
+      )
     else
       @user = User.new(user_params)
       @user.errors.add(:base, result.error)
-      render :new, status: :unprocessable_entity, layout: false
+      render turbo_stream: turbo_stream.replace(
+        "modal",
+        partial: "users/form",
+        locals: { user: @user }
+      ), status: :unprocessable_entity
     end
   end
 
@@ -67,6 +82,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :password)
   end
 end

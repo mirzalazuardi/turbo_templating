@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate PWA Icons</title>
+</head>
+<body>
+  <h1>Generate PWA Icons</h1>
+  <p>Save the canvases below as icon-192.png and icon-512.png</p>
+  <canvas id="icon192" width="192" height="192"></canvas>
+  <canvas id="icon512" width="512" height="512"></canvas>
+  
+  <script>
+    function drawIcon(canvas, size) {
+      const ctx = canvas.getContext('2d');
+      
+      // Background
+      ctx.fillStyle = '#3b82f6';
+      ctx.fillRect(0, 0, size, size);
+      
+      // Letter T
+      ctx.fillStyle = 'white';
+      const fontSize = size * 0.6;
+      ctx.font = `bold ${fontSize}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('T', size / 2, size / 2);
+    }
+    
+    drawIcon(document.getElementById('icon192'), 192);
+    drawIcon(document.getElementById('icon512'), 512);
+    
+    // Auto-download
+    setTimeout(() => {
+      ['icon192', 'icon512'].forEach(id => {
+        const canvas = document.getElementById(id);
+        const link = document.createElement('a');
+        link.download = `${id === 'icon192' ? 'icon-192' : 'icon-512'}.png`;
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }, 1000);
+  </script>
+</body>
+</html>
