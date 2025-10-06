@@ -1,0 +1,173 @@
+# Indonesian translations for Turbo Templating
+# Copyright (C) 2025
+# This file is distributed under the same license as the Turbo Templating package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Turbo Templating 1.0\n"
+"POT-Creation-Date: 2025-10-06 13:00+0700\n"
+"PO-Revision-Date: 2025-10-06 13:00+0700\n"
+"Last-Translator: \n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# Navigation
+msgid "dashboard"
+msgstr "Dasbor"
+
+msgid "projects"
+msgstr "Proyek"
+
+msgid "customers"
+msgstr "Pelanggan"
+
+msgid "invoices"
+msgstr "Faktur"
+
+msgid "support"
+msgstr "Dukungan"
+
+msgid "settings"
+msgstr "Pengaturan"
+
+msgid "logout"
+msgstr "Keluar"
+
+# Users
+msgid "users"
+msgstr "Pengguna"
+
+msgid "new_user"
+msgstr "Pengguna Baru"
+
+msgid "edit_user"
+msgstr "Ubah Pengguna"
+
+msgid "create_user"
+msgstr "Buat pengguna baru"
+
+msgid "email_address"
+msgstr "Alamat email"
+
+msgid "save"
+msgstr "Simpan"
+
+msgid "search"
+msgstr "Cari"
+
+msgid "no_records_found"
+msgstr "Tidak ada data ditemukan"
+
+# Authentication
+msgid "sign_in"
+msgstr "Masuk"
+
+msgid "sign_up"
+msgstr "Daftar"
+
+msgid "forgot_password"
+msgstr "Lupa kata sandi?"
+
+msgid "reset_password"
+msgstr "Atur ulang kata sandi"
+
+msgid "password"
+msgstr "Kata sandi"
+
+msgid "password_confirmation"
+msgstr "Konfirmasi kata sandi"
+
+msgid "remember_me"
+msgstr "Ingat saya"
+
+# Common
+msgid "home"
+msgstr "Beranda"
+
+msgid "back"
+msgstr "Kembali"
+
+msgid "cancel"
+msgstr "Batal"
+
+msgid "delete"
+msgstr "Hapus"
+
+msgid "edit"
+msgstr "Ubah"
+
+msgid "show"
+msgstr "Tampilkan"
+
+msgid "are_you_sure"
+msgstr "Anda yakin?"
+
+msgid "language"
+msgstr "Bahasa"
+
+msgid "english"
+msgstr "Inggris"
+
+msgid "indonesian"
+msgstr "Indonesia"
+
+# Errors
+msgid "error_prohibited_save"
+msgstr "%{count} kesalahan mencegah %{model} ini disimpan:"
+
+msgid "error_prohibited_save_plural"
+msgstr "%{count} kesalahan mencegah %{model} ini disimpan:"
+
+# Accessibility
+msgid "skip_to_main_content"
+msgstr "Langsung ke konten utama"
+
+msgid "close_navigation_menu"
+msgstr "Tutup menu navigasi"
+
+msgid "main_content"
+msgstr "Konten utama"
+
+msgid "primary_navigation"
+msgstr "Navigasi utama"
+
+msgid "secondary_navigation"
+msgstr "Navigasi sekunder"
+
+msgid "search_and_filter_table"
+msgstr "Cari dan filter tabel"
+
+msgid "submit_search"
+msgstr "Kirim pencarian"
+
+msgid "data_table"
+msgstr "Tabel data"
+
+msgid "pagination_navigation"
+msgstr "Navigasi halaman"
+
+# PWA
+msgid "install_app"
+msgstr "Pasang Aplikasi"
+
+msgid "offline"
+msgstr "Anda Offline"
+
+msgid "offline_message"
+msgstr "Sepertinya Anda telah kehilangan koneksi internet. Jangan khawatir, kami akan menyambung kembali secara otomatis ketika Anda kembali online."
+
+msgid "try_again"
+msgstr "Coba Lagi"
+
+msgid "connection_status"
+msgstr "Status Koneksi"
+
+msgid "online"
+msgstr "Online"
+
+msgid "offline_status"
+msgstr "Offline"

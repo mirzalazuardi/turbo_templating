@@ -75,6 +75,18 @@ This is a Rails 8.0 application with a modern Hotwire (Turbo + Stimulus) stack, 
 - ✅ Responsive theme-color for light/dark mode
 - ✅ Focus indicators on all interactive elements
 
+### Internationalization (i18n)
+- ✅ fast_gettext integration
+- ✅ English (en) - default language
+- ✅ Indonesian (id) - Bahasa Indonesia
+- ✅ Locale switcher component in header
+- ✅ Session-based locale persistence
+- ✅ Browser language detection (Accept-Language header)
+- ✅ URL parameter support (?locale=id)
+- ✅ PO file format for translations
+- ✅ 19 passing i18n specs
+- ✅ Comprehensive translation coverage (navigation, forms, authentication)
+
 ## Development Commands
 
 ### Setup and Running

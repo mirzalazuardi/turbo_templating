@@ -80,3 +80,6 @@ gem "interactor", "~> 3.2"
 
 gem "ransack", "~> 4.3"
 
+gem "fast_gettext", "~> 2.4"
+gem "gettext_i18n_rails", "~> 1.13"
+
